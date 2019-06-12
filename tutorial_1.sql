@@ -57,7 +57,7 @@ SELECT name
 -- select he country where the capital is the country plus "City"
 SELECT name
     FROM world
-    WHERE capital = concat(name, " City");
+    WHERE capital = concat(name, '' City');
 
 -- select capital, name where capital includes country's name
 SELECT capital, name
