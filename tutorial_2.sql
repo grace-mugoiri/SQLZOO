@@ -31,7 +31,7 @@ SELECT name
 -- select  countries where name has three a's
 SELECT name
     FROM world
-    WHERE name LIKE '%a%a%a';
+    WHERE name LIKE '%a%a%a%';
 
 -- select countries that have t as the second character
 SELECT name 
@@ -48,3 +48,40 @@ SELECT name
 SELECT name 
     FROM world
     WHERE name LIKE '____';
+
+-- select the country where the name is the capital city
+SELECT name
+    FROM world
+    WHERE name = capital;
+
+-- select he country where the capital is the country plus "City"
+SELECT name
+    FROM world
+    WHERE capital = concat(name, " City");
+
+-- select capital, name where capital includes country's name
+SELECT capital, name
+    FROM world
+    WHERE capital LIKE concat('%', name, '%');
+
+-- select capital and name where capital is an extension of the name of the country
+SELECT capital, name
+    FROM world
+    WHERE name <> capital AND capital LIKE concat(name, '%');
+
+-- show the name and the extension where the capital is an extension of the name of the country
+SELECT name, REPLACE(capital, name, '')
+    FROM world
+    WHERE capital LIKE concat(name, '%') AND name <> capital;
+
+
+
+
+
+
+
+
+
+
+
+
